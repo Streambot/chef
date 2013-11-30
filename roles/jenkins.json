@@ -1,0 +1,14 @@
+{
+  "name": "jenkins",
+  "description": "Jenkins server role",
+  "override_attributes": {
+  },
+  "env_run_lists":{
+    "_default": [
+      "recipe[jenkins]"
+    ],
+    "production": [
+      "recipe[jenkins]"
+    ]
+  }
+}
