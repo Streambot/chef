@@ -1,0 +1,1 @@
+default[:jenkins_plugins][:thinBackup][:version] = "1.7.4"

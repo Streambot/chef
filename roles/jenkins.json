@@ -1,14 +1,17 @@
 {
   "name": "jenkins",
   "description": "Jenkins server role",
-  "override_attributes": {
-  },
+  "json_class": "Chef::Role",
+  "description": "This the Jenkins role - a Jenkins CI server.",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[jenkins::server]",
+    "recipe[setup-jenkins]"
+  ],
   "env_run_lists":{
-    "_default": [
-      "recipe[jenkins]"
-    ],
     "production": [
-      "recipe[jenkins]"
+      "recipe[jenkins::server]",
+      "recipe[setup-jenkins]"
     ]
   }
 }
