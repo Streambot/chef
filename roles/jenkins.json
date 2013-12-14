@@ -9,6 +9,8 @@
     "recipe[setup-jenkins]"
   ],
   "env_run_lists":{
+    "_default": [
+    ],
     "production": [
       "recipe[jenkins::server]",
       "recipe[setup-jenkins]"
