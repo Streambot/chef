@@ -1,5 +1,3 @@
-include_recipe "setup-jenkins::go"
-
 jenkins_plugin 'thinBackup' do
   action :install
   version node[:jenkins_plugins][:thinBackup][:version]

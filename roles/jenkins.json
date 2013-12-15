@@ -4,16 +4,23 @@
   "json_class": "Chef::Role",
   "description": "This the Jenkins role - a Jenkins CI server.",
   "chef_type": "role",
+  "override_attributes": {
+    "go": {
+      "version": "1.2"
+    }
+  },
   "run_list": [
     "recipe[jenkins::server]",
-    "recipe[setup-jenkins]"
+    "recipe[setup-jenkins]",
+    "recipe[chef-golang]"
   ],
   "env_run_lists":{
     "_default": [
     ],
     "production": [
       "recipe[jenkins::server]",
-      "recipe[setup-jenkins]"
+      "recipe[setup-jenkins]",
+      "recipe[chef-golang]"
     ]
   }
 }
