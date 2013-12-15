@@ -3,7 +3,7 @@ jenkins_plugin 'thinBackup' do
   version node[:jenkins_plugins][:thinBackup][:version]
 end
 
-directory "/var/lib/jenkins" do
+directory "/var/backup" do
   owner "jenkins"
   group "jenkins"
   mode 00755
