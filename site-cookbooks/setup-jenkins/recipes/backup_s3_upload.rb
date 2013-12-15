@@ -1,4 +1,4 @@
-var script_location = "/opt/upload_jenkins_backup.sh"
+script_location = "/opt/upload_jenkins_backup.sh"
 
 # Install the backup upload script from template
 template script_location do
