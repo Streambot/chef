@@ -1,0 +1,20 @@
+backup_src_dir=/var/backup/
+backup_src_file=`ls -al $backup_src_dir | tail -1 | awk '{print $NF}'`
+backup_src=$backup_src_dir/$backup_src_file
+bundle=/tmp/jenkins_`hostname`-backup-$backup_src.tar.bz
+bucket=<%= @s3_backup_bucket_uri %>
+
+# Create a tarball bundle from the compressed full backup source directory
+tar cvfj $bundle $backup_src
+
+# Ensure there is the backup bucket in S3
+s3cmd mb $bucket
+
+# Upload the created tarball bundle to the backup S3 bucket
+s3cmd put $bundle $bucket
+
+# Delete the tarball bundle (cleanup)
+rm $bundle
+
+# Delete the full backup source directory (cleanup)
+rm -rf $backup_src
