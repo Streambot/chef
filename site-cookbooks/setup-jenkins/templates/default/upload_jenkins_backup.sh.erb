@@ -1,3 +1,5 @@
+#! /bin/bash
+
 backup_src_dir=/var/backup/
 backup_src_file=`ls -al $backup_src_dir | tail -1 | awk '{print $NF}'`
 backup_src=$backup_src_dir/$backup_src_file
