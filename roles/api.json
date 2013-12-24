@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "description": "API server role",
+  "json_class": "Chef::Role",
+  "description": "This the API server role",
+  "chef_type": "role",
+  "override_attributes": { 
+  },
+  "run_list": [
+    "recipe[streambot-api]"
+  ],
+  "env_run_lists":{
+    "_default": [
+    ],
+    "vagrant": [
+      "recipe[streambot-api::vagrant]"
+    ],
+    "production": [
+      "recipe[streambot-api]"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+[submodule "site-cookbooks/chef-streambot-api"]
+	path = site-cookbooks/chef-streambot-api
+	url = git@bitbucket.org:streambot/chef-streambot-api.git
+[submodule "site-cookbooks/chef-streambot-jenkins"]
+	path = site-cookbooks/chef-streambot-jenkins
+	url = ssh://git@bitbucket.org/streambot/chef-streambot-jenkins.git
