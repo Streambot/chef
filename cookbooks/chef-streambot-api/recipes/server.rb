@@ -20,7 +20,9 @@ bash "build_streambot_api" do
 	user 	"root"
 	group 	"root"
 	code 	<<-EOH
-	tar xvfj #{node[:streambot][:api][:src]}
+	cp #{node[:streambot][:api][:src]} api.tar.bz
+	tar xvfj api.tar.bz
+	rm api.tar.bz
 	cd streambot-api
 	/usr/local/go/bin/go build api.go
 	mkdir -p #{File.dirname(node[:streambot][:api][:binary])}
