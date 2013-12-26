@@ -15,23 +15,18 @@ directory "/opt/go" do
 	recursive	true
 end
 
-bash "prepare_api_source" do
-	user 	"root"
-	cwd 	"/tmp"
-	code 	<<-EOH
-	chown -R #{node[:streambot][:node][:user]}:#{node[:streambot][:node][:group]} #{node[:streambot][:api][:src]}
-	EOH
-end
-
 bash "build_streambot_api" do
 	cwd		"/tmp"
-	user 	"streambot"
-	group 	"streambot"
+	user 	"root"
+	group 	"root"
 	code 	<<-EOH
 	tar xvfj #{node[:streambot][:api][:src]}
 	cd streambot-api
-	go build api.go
+	/usr/local/go/bin/go build api.go
+	mkdir -p #{File.dirname(node[:streambot][:api][:binary])}
 	mv api #{node[:streambot][:api][:binary]}
+	ln -s #{node[:streambot][:api][:binary]} /usr/bin/#{File.basename(node[:streambot][:api][:binary])}
+	chmod 0755 #{node[:streambot][:api][:binary]}
 	EOH
   	not_if { ::File.exists?(node[:streambot][:api][:binary]) }
 end

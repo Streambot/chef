@@ -6,7 +6,7 @@ default["streambot"] = {
 		:home 	=> "/home/streambot"
 	},
 	:api => {
-		:binary	=> "/usr/local/bin/streambot_api",
+		:binary	=> "/opt/streambot/api/bin/streambot_api",
 		:src 	=> "#{Chef::Config[:file_cache_path]}/streambot-api.tar.bz"
 	}
 }
