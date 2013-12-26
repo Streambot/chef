@@ -2,7 +2,7 @@ default["streambot"] = {
 	:node => {
 		:user 	=> "streambot",
 		:group 	=> "streambot",
-		:shell 	=> "bash",
+		:shell 	=> "/bin/bash",
 		:home 	=> "/home/streambot"
 	},
 	:api => {
