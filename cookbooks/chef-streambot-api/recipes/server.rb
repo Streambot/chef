@@ -1,27 +1,25 @@
 include_recipe "chef-streambot-api"
 
-puts node['streambot']
-
 group node['streambot']['node']['group']
 
 user node['streambot']['node']['user'] do
-  comment	'Streambot API node (ssh)'
-  gid 		node['streambot']['node']['group']
-  home 		node['streambot']['node']['home']
-  shell 	node['streambot']['node']['shell']
+	comment		'Streambot API node (ssh)'
+	gid 		node['streambot']['node']['group']
+	home 		node['streambot']['node']['home']
+	shell 		node['streambot']['node']['shell']
 end
 
 directory "/opt/go" do
-  owner 	node['streambot']['node']['user']
-  group 	node['streambot']['node']['group']
-  recursive true
+	owner 		node['streambot']['node']['user']
+	group 		node['streambot']['node']['group']
+	recursive	true
 end
 
 bash "prepare_api_source" do
-	user "root"
-	cwd "/tmp"
+	user 	"root"
+	cwd 	"/tmp"
 	code 	<<-EOH
-	chown -R #{node[:node][:user]}:#{node[:node][:group]} #{node[:streambot][:api][:src]}
+	chown -R #{node[:streambot][:node][:user]}:#{node[:streambot][:node][:group]} #{node[:streambot][:api][:src]}
 	EOH
 end
 
