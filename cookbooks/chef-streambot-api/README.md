@@ -1,0 +1,1 @@
+# Chef cookbook of the Streambot API

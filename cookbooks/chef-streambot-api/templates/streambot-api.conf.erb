@@ -1,0 +1,20 @@
+# Streambot API upstart script
+# This script will start/stop a Streambot API server
+description "Start and stop the Streambot API server"
+version "0.1"
+author "Martin Biermann"
+
+start on local-filesystems and net-device-up IFACE!=lo
+stop on shutdown
+
+respawn
+respawn limit 5 60
+
+# tell upstart we're creating a daemon
+# upstart manages PID creation for you.
+expect daemon
+
+script
+# My startup script, plain old shell scripting here.
+su <%= node[:streambot][:node][:user] %> -c "<%= node[:streambot][:api][:binary] %> &"
+end script
