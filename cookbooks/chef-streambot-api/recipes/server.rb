@@ -9,12 +9,6 @@ user node['streambot']['node']['user'] do
 	shell 		node['streambot']['node']['shell']
 end
 
-directory "/opt/go" do
-	owner 		node['streambot']['node']['user']
-	group 		node['streambot']['node']['group']
-	recursive	true
-end
-
 bash "build_streambot_api" do
 	cwd		"/tmp"
 	user 	"root"
@@ -30,6 +24,9 @@ bash "build_streambot_api" do
 	ln -s #{node[:streambot][:api][:binary]} /usr/bin/#{File.basename(node[:streambot][:api][:binary])}
 	chmod 0755 #{node[:streambot][:api][:binary]}
 	EOH
+	environment({
+    	'GOPATH' => node[:go][:gopath]
+    })
   	not_if { ::File.exists?(node[:streambot][:api][:binary]) }
 end
 
