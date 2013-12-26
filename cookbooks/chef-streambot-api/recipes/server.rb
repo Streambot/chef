@@ -20,7 +20,9 @@ end
 bash "Make source tarball accessible for #{node[:node][:user]} user" do
 	user "root"
   	cwd "/tmp"
-	code "chown -R #{node[:node][:user]}:#{node[:node][:group]} #{node[:streambot][:api][:src]}"
+	code 	<<-EOH
+	chown -R #{node[:node][:user]}:#{node[:node][:group]} #{node[:streambot][:api][:src]}
+	EOH
 end
 
 bash "Build and install API server to #{node[:streambot][:api][:binary]}" do
@@ -33,6 +35,7 @@ bash "Build and install API server to #{node[:streambot][:api][:binary]}" do
 	go build api.go
 	mv api #{node[:streambot][:api][:binary]}
 	EOH
+  	not_if { ::File.exists?(node[:streambot][:api][:binary]) }
 end
 
 template "/etc/init/streambot-api.conf" do
