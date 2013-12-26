@@ -19,7 +19,7 @@ end
 
 bash "Make source tarball accessible for #{node[:node][:user]} user" do
 	user "root"
-  	cwd "/tmp"
+	cwd "/tmp"
 	code 	<<-EOH
 	chown -R #{node[:node][:user]}:#{node[:node][:group]} #{node[:streambot][:api][:src]}
 	EOH
