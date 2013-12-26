@@ -18,15 +18,13 @@ bash "build_streambot_api" do
 	tar xvfj api.tar.bz
 	rm api.tar.bz
 	cd streambot-api
-	#{node[:streambot][:node][:go][:binary]} build api.go
+	go build api.go
 	mkdir -p #{File.dirname(node[:streambot][:api][:binary])}
 	mv api #{node[:streambot][:api][:binary]}
+	rm -rf streambot-api
 	ln -s #{node[:streambot][:api][:binary]} /usr/bin/#{File.basename(node[:streambot][:api][:binary])}
 	chmod 0755 #{node[:streambot][:api][:binary]}
 	EOH
-	environment({
-    	'GOPATH' => node[:streambot][:node][:go][:gopath]
-    })
   	not_if { ::File.exists?(node[:streambot][:api][:binary]) }
 end
 
