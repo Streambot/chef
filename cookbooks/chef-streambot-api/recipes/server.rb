@@ -17,7 +17,7 @@ directory "/opt/go" do
   recursive true
 end
 
-bash "Make source tarball accessible for #{node[:node][:user]} user" do
+bash "prepare_api_source" do
 	user "root"
 	cwd "/tmp"
 	code 	<<-EOH
@@ -25,7 +25,7 @@ bash "Make source tarball accessible for #{node[:node][:user]} user" do
 	EOH
 end
 
-bash "Build and install API server to #{node[:streambot][:api][:binary]}" do
+bash "build_streambot_api" do
 	cwd		"/tmp"
 	user 	"streambot"
 	group 	"streambot"
