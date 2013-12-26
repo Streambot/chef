@@ -18,6 +18,8 @@ directory "/opt/go" do
 end
 
 bash "Make source tarball accessible for #{node[:node][:user]} user" do
+	user "root"
+  	cwd "/tmp"
 	code "chown -R #{node[:node][:user]}:#{node[:node][:group]} #{node[:streambot][:api][:src]}"
 end
 
