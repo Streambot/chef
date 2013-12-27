@@ -7,13 +7,12 @@
   "override_attributes": {
   },
   "run_list": [
-    "recipe[streambot-jenkins]"
   ],
   "env_run_lists":{
     "_default": [
     ],
     "production": [
-      "recipe[streambot-jenkins]"
+      "recipe[chef-streambot-jenkins]"
     ]
   }
 }

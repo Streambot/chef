@@ -39,8 +39,6 @@ bash "build_streambot_api" do
 	chmod 0755 #{node[:streambot][:api][:binary]}
 	EOH
   	not_if { ::File.exists?(node[:streambot][:api][:binary]) }
-  	environment({
-  		"GOPATH" => "/opt/go"
-  	})
+  	environment({ "GOPATH" => "/opt/go" })
   	notifies :restart, 'service[streambot_api]', :delayed
 end

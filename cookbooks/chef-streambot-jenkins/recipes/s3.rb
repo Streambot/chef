@@ -10,7 +10,7 @@ template '/home/ubuntu/.s3cfg' do
 	owner "ubuntu"
 	group "ubuntu"
 	variables({
-		:access_key => node[:aws][:s3][:access_key],
-		:secret_key => node[:aws][:s3][:secret_key]
+		:access_key => node[:aws][:access_key],
+		:secret_key => node[:aws][:secret_key]
 	})
 end

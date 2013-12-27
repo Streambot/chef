@@ -7,7 +7,7 @@ template script_location do
   owner "ubuntu"
   group "ubuntu"
   variables({
-    :s3_backup_bucket_uri => node[:aws][:s3][:backup_bucket_uri]
+    :s3_backup_bucket_uri => node[:aws][:s3_backup_bucket_uri]
   })
 end
 

@@ -7,7 +7,6 @@
   "override_attributes": { 
   },
   "run_list": [
-    "recipe[streambot-api]"
   ],
   "env_run_lists":{
     "_default": [
@@ -16,7 +15,7 @@
       "recipe[streambot-api::vagrant]"
     ],
     "production": [
-      "recipe[streambot-api]"
+      "recipe[chef-streambot-api::server]"
     ]
   }
 }
