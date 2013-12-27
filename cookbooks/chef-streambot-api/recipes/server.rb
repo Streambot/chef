@@ -9,6 +9,18 @@ user node['streambot']['node']['user'] do
 	shell 		node['streambot']['node']['shell']
 end
 
+template "/etc/init/streambot_api.conf" do
+  source      'streambot-api.conf.erb'
+  owner       'root'
+  group       'root'
+  mode        '0644'
+end
+
+service "streambot_api" do
+  provider Chef::Provider::Service::Upstart
+  action :nothing
+end
+
 # Build the Streambot API from its source. 
 # Unfortunately the golang installation in the default recipe does not spread the go binary path and 
 # the go path among all users via interactive shells. Therefore the root user does not know about 
@@ -30,16 +42,5 @@ bash "build_streambot_api" do
   	environment({
   		"GOPATH" => "/opt/go"
   	})
-end
-
-template "/etc/init/streambot-api.conf" do
-  source      'streambot-api.conf.erb'
-  owner       'root'
-  group       'root'
-  mode        '0644'
-end
-
-service "streambot_api" do
-  provider Chef::Provider::Service::Upstart
-  action :start
+  	notifies :restart, 'service[streambot_api]', :delayed
 end
