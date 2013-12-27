@@ -32,6 +32,11 @@ bash "build_streambot_api" do
   	})
 end
 
+service "streambot_api" do
+  provider Chef::Provider::Service::Upstart
+  action :start
+end
+
 template "/etc/init/streambot-api.conf" do
   source      'streambot-api.conf.erb'
   owner       'root'
