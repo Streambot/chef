@@ -9,15 +9,17 @@ user node['streambot']['node']['user'] do
 	shell 		node['streambot']['node']['shell']
 end
 
+# Build the Streambot API from its source. 
+# Unfortunately the golang installation in the default recipe does not spread the go binary path and 
+# the go path among all users via interactive shells. Therefore the root user does not know about 
+# the go binary path, unless there is a login shell.
 bash "build_streambot_api" do
-	user 	"root"
-	cwd		"/tmp"
 	code 	<<-EOH
 	cp #{node[:streambot][:api][:src]} api.tar.bz
 	tar xvfj api.tar.bz
 	rm api.tar.bz
 	cd streambot-api
-	go build api.go
+	/usr/local/go/bin/go build api.go
 	mkdir -p #{File.dirname(node[:streambot][:api][:binary])}
 	mv api #{node[:streambot][:api][:binary]}
 	rm -rf streambot-api
@@ -25,6 +27,9 @@ bash "build_streambot_api" do
 	chmod 0755 #{node[:streambot][:api][:binary]}
 	EOH
   	not_if { ::File.exists?(node[:streambot][:api][:binary]) }
+  	environment({
+  		"GOPATH" => "/opt/go"
+  	})
 end
 
 template "/etc/init/streambot-api.conf" do
