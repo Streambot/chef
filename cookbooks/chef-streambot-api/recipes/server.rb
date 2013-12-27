@@ -10,9 +10,6 @@ user node['streambot']['node']['user'] do
 end
 
 bash "build_streambot_api" do
-	cwd		"/tmp"
-	user 	"root"
-	group 	"root"
 	code 	<<-EOH
 	cp #{node[:streambot][:api][:src]} api.tar.bz
 	tar xvfj api.tar.bz
