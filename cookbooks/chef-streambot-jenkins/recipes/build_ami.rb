@@ -11,7 +11,8 @@ template '/usr/bin/build-ami' do
 	owner 	"jenkins"
 	group 	"jenkins"
 	variables({
-		:aws 		=> node[:aws],
-		:chef_repo	=> node[:chef_repo]
+		:aws 				=> node[:build_ami][:aws],
+		:chef_repo			=> node[:build_ami][:chef_repo],
+		:deployment_repo	=> node[:build_ami][:deployment_repo]
 	})
 end
