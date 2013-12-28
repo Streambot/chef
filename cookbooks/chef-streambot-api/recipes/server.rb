@@ -1,3 +1,4 @@
+include_recipe "chef-streambot-aws::access"
 include_recipe "chef-streambot-api"
 
 group node['streambot']['node']['group']
