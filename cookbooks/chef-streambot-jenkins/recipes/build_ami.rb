@@ -1,5 +1,5 @@
 template node[:aws][:keypair][:file] do
-	source	"jenkins.pem.rb"
+	source	"jenkins.pem.erb"
 	mode	0766
 	owner 	"jenkins"
 	group 	"jenkins"
