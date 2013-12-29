@@ -1,3 +1,5 @@
+include_recipe "aws_developer_tools"
+
 template node[:build_ami][:aws][:keypair][:file] do
 	source	"jenkins.pem.erb"
 	mode	0766
