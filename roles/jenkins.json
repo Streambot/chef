@@ -11,7 +11,7 @@
         "group" : "jenkins",
         "home"  : "/var/lib/jenkins",
         "config": {
-          "acces_key_id": "AKIAJ4Z6VLJRBCHACPIA",
+          "access_key_id": "AKIAJ4Z6VLJRBCHACPIA",
           "secret_access_key": "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",
           "default_region": "eu-west-1" 
         }
