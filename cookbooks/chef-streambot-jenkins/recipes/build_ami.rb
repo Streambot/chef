@@ -3,11 +3,9 @@ bash "enable_multiverse_apt_repos" do
 	code <<-EOH
 	sed 's/# \(.*multiverse\)/\1/g' /etc/apt/sources.list > /tmp/apt_sources.list; mv /tmp/apt_sources.list /etc/apt/sources.list
 	apt-get update
+	apt-get install -y ec2-api-tools ec2-ami-tools
 	EOH
 end
-
-package "ec2-api-tools"
-package "ec2-ami-tools"
 
 template node[:build_ami][:aws][:keypair][:file] do
 	source	"jenkins.pem.erb"
