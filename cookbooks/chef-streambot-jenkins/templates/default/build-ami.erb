@@ -59,7 +59,7 @@ cd $CWD
 # 1 - Download deployment repository
 ################################################################################
 
-$TOOL_DIR=`echo "<%= @deployment_repo %>" | sed 's/.*\/\([^\/\.]*\)\.git/\1/g'`
+TOOL_DIR=`echo "<%= @deployment_repo %>" | sed 's/.*\/\([^\/\.]*\)\.git/\1/g'`
 git clone <%= @deployment_repo %>
 
 ################################################################################
