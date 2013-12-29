@@ -1,6 +1,4 @@
 node.access.ssh.authorized_keys.each do |key|
-        bash "add_ssh_authorized_key" do
-                user node.access.ssh.user
-                code "echo '#{key}' >> ~/.ssh/authorized_keys"
-        end
+	file = "#{node.access.ssh.user_home}/.ssh/authorized_keys"
+    execute "if ! grep -q '#{key}' #{file} ; then echo '#{key}' >> #{file}; fi;"
 end
