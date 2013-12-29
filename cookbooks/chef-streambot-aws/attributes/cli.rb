@@ -6,7 +6,7 @@ default[:aws_cli] = {
 		:group 	=> "",
 		:home 	=> "",
 		:config => {
-			:acces_key_id => "",
+			:access_key_id => "",
 			:secret_access_key => "",
 			:default_region => ""	
 		}
