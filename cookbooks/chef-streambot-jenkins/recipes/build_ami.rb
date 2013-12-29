@@ -2,6 +2,7 @@ bash "enable_multiverse_apt_repos" do
 	user	"root"
 	code <<-EOH
 	cat /etc/apt/sources.list | sed 's/# \(.*multiverse\)/\1/g' > /etc/apt/sources.list
+	apt-get update
 	EOH
 end
 
