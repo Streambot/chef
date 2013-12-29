@@ -1,4 +1,3 @@
-include_recipe "chef-streambot-aws::access"
 include_recipe "jenkins::server"
 include_recipe "chef-streambot-jenkins::s3"
 include_recipe "chef-streambot-jenkins::thin_backup"
