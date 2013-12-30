@@ -39,13 +39,13 @@
       },
       "deployment_repo": "git@bitbucket.org:streambot/deployment.git",
       "chef_repo": {
-        "url ": "git@bitbucket.org:streambot/chef.git",
+        "url": "git@bitbucket.org:streambot/chef.git",
         "branch": "master"
       },
       "user": {
         "name": "jenkins",
-        "group ": "jenkins",
-        "home  ": "/home/jenkins"
+        "group": "jenkins",
+        "home": "/home/jenkins"
       }
     }
   },
