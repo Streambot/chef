@@ -57,9 +57,13 @@ cd $CWD
 # 1 - Download deployment repository
 ################################################################################
 
-TOOL_DIR=`echo "<%= @deployment_repo %>" | sed 's/.*\/\([^\/\.]*\)\.git/\1/g'`
+TOOL_DIR=`pwd`/`echo "<%= @deployment_repo %>" | sed 's/.*\/\([^\/\.]*\)\.git/\1/g'`
 git clone <%= @deployment_repo %>
 cd $TOOL_DIR
+# Its safe to call the submodule commands here
+# even if the repos does not have any of these.
+git submodule init
+git submodule update
 
 ################################################################################
 # 2 - Run create_ami.sh script using predefined variables
@@ -71,6 +75,7 @@ cd $TOOL_DIR
 # script and that are appended by '"$@"' will override any pre-defined value.
 
 ./create_ami.sh \
+--berkshelf-src $TOOL_DIR
 --key-pair <%= @aws.keypair.file %> \
 --key-pair-name <%= @aws.keypair.name %> \
 --ami-id <%= @aws.base_ami %> \
