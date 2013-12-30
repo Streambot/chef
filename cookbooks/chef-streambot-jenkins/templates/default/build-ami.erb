@@ -25,7 +25,7 @@
 ################################################################################
 
 set -e
-# set -x
+set -x
 
 function usage {
   echo "Usage: `pwd`/build-ami (options)"
@@ -59,6 +59,7 @@ cd $CWD
 
 TOOL_DIR=`echo "<%= @deployment_repo %>" | sed 's/.*\/\([^\/\.]*\)\.git/\1/g'`
 git clone <%= @deployment_repo %>
+cd $TOOL_DIR
 
 ################################################################################
 # 2 - Run create_ami.sh script using predefined variables
@@ -69,7 +70,7 @@ git clone <%= @deployment_repo %>
 # the order of their appending. Thus any actual arguments given to this 
 # script and that are appended by '"$@"' will override any pre-defined value.
 
-$TOOL_DIR/create_ami.sh \
+./create_ami.sh \
 --key-pair <%= @aws.keypair.file %> \
 --key-pair-name <%= @aws.keypair.name %> \
 --ami-id <%= @aws.base_ami %> \
