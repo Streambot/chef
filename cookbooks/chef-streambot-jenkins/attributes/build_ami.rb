@@ -1,16 +1,21 @@
 default[:build_ami] = {
 	:aws => {
-		:access_key => default[:aws][:access_key],
-		:secret_key => default[:aws][:secret_key],
+		:access_key => "",
+		:secret_key => "",
 		:keypair => {
-			:file => "#{default['jenkins']['server']['home']}/.ssh/jenkins.pem",
-			:name => "jenkins"
+			:file => "",
+			:name => ""
 		},
-		:base_ami => "ami-07cb2670",
+		:base_ami => ""
 	},
-	:deployment_repo => "git@bitbucket.org:streambot/deployment.git",
+	:deployment_repo => "",
 	:chef_repo => {
-		:url 	=> "git@bitbucket.org:streambot/chef.git",
-		:branch => "master"
+		:url 	=> "",
+		:branch => ""
+	},
+	:user => {
+		:name	=> "",
+		:group 	=> "",
+		:home  	=> ""
 	}
 }

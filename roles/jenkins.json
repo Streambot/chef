@@ -5,18 +5,50 @@
   "description": "This the Jenkins role - a Jenkins CI server.",
   "chef_type": "role",
   "override_attributes": {
+    "jenkins": {
+      "server": {
+        "home": "/home/jenkins"
+      }
+    },
     "aws_cli": {
       "user": {
         "name"  : "jenkins",
         "group" : "jenkins",
-        "home"  : "/var/lib/jenkins",
+        "home"  : "/home/jenkins",
         "config": {
           "access_key_id": "AKIAJ4Z6VLJRBCHACPIA",
           "secret_access_key": "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",
           "default_region": "eu-west-1" 
         }
       }
+    },
+    "aws": {
+      "access_key": "AKIAJ4Z6VLJRBCHACPIA",
+      "secret_key": "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",
+      "s3_backup_bucket_uri": "s3://com.streambot.backup"
+    },
+    "build_ami": {
+      "aws": {
+        "access_key": "AKIAJ4Z6VLJRBCHACPIA",
+        "secret_key": "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",
+        "keypair": {
+          "file": "/home/jenkins/.ssh/jenkins.pem",
+          "name": "jenkins"
+        },
+        "base_ami": "ami-07cb2670"
+      },
+      "deployment_repo": "git@bitbucket.org:streambot/deployment.git",
+      "chef_repo": {
+        "url ": "git@bitbucket.org:streambot/chef.git",
+        "branch": "master"
+      },
+      "user": {
+        "name": "jenkins",
+        "group ": "jenkins",
+        "home  ": "/home/jenkins"
+      }
     }
+}
   },
   "run_list": [
   ],
