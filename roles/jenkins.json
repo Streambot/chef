@@ -48,7 +48,6 @@
         "home  ": "/home/jenkins"
       }
     }
-}
   },
   "run_list": [
   ],
