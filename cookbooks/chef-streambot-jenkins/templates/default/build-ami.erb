@@ -75,7 +75,7 @@ git submodule update
 # script and that are appended by '"$@"' will override any pre-defined value.
 
 ./create_ami.sh \
---berkshelf-src $TOOL_DIR
+--berkshelf-src $TOOL_DIR \
 --key-pair <%= @aws.keypair.file %> \
 --key-pair-name <%= @aws.keypair.name %> \
 --ami-id <%= @aws.base_ami %> \
