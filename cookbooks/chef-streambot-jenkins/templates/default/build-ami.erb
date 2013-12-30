@@ -34,8 +34,6 @@ function usage {
   printf "%s %30s\n" "-p, --key-pair" "KEY_PAIR"
   printf "%s %30s\n" "-d, --key-pair-name" "KEY_PAIR_NAME"
   printf "%s %30s\n" "-n, --instance-name" "INSTANCE_NAME"
-  printf "%s %30s\n" "-k, --aws-key" "AWS_KEY"
-  printf "%s %30s\n" "-c, --aws-secret-key" "AWS_SECRET_KEY"
   printf "%s %30s\n" "-i, --instance-type" "INSTANCE_TYPE"
   printf "%s %30s\n" "-s, --subnet-id" "SUBNET"
   printf "%s %30s\n" "-g, --security-group-id" "SG_ID"
@@ -74,8 +72,6 @@ git clone <%= @deployment_repo %>
 $TOOL_DIR/create_ami.sh \
 --key-pair <%= @aws.keypair.file %> \
 --key-pair-name <%= @aws.keypair.name %> \
---aws-key <%= @aws.access_key %> \
---aws-secret-key <%= @aws.secret_key %> \
 --ami-id <%= @aws.base_ami %> \
 --chef-git <%= @chef_repo.url %> \
 --git-branch <%= @chef_repo.branch %> \
