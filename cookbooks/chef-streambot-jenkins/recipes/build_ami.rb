@@ -18,7 +18,7 @@ template '/usr/bin/build-ami' do
 	source 	"build-ami.erb"
 	mode 	0755
 	owner 	"jenkins"
-	group 	"node[:build_ami][:user][:group]"
+	group 	node[:build_ami][:user][:group]
 	variables({
 		:aws 				=> node[:build_ami][:aws],
 		:chef_repo			=> node[:build_ami][:chef_repo],
