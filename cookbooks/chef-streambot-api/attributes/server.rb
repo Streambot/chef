@@ -1,8 +1,10 @@
 default["streambot_api"] = {
-	:user 	=> "",
-	:group 	=> "",
-	:home 	=> "",
-	:shell 	=> "/bin/bash",
+	:user 	=> {
+		:name => "",
+		:group 	=> "",
+		:home 	=> "",
+		:shell 	=> "/bin/bash"
+	},
 	:go 	=> {
 		:binary => "/usr/local/go/bin/go",
 		:gopath => "/opt/go"

@@ -1,13 +1,13 @@
 include_recipe "chef-streambot-aws::access"
 include_recipe "chef-streambot-api"
 
-group node[:streambot_api]['group']
+group node[:streambot_api][:user][:group]
 
-user node[:streambot_api]['user'] do
+user node[:streambot_api][:user][:name] do
 	comment		'Streambot API node (ssh)'
-	gid 		node[:streambot_api]['group']
-	home 		node[:streambot_api]['home']
-	shell 		node[:streambot_api]['shell']
+	gid 		node[:streambot_api][:user][:group]
+	home 		node[:streambot_api][:user][:home]
+	shell 		node[:streambot_api][:user][:shell]
 end
 
 include_recipe "chef-streambot-scm-access"
