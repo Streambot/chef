@@ -5,6 +5,26 @@
   "description": "This the API server role",
   "chef_type": "role",
   "override_attributes": { 
+    "scm_access": {
+      "user": {
+        "name": "root",
+        "group": "root",
+        "home": "/root"
+      }
+    },
+    "streambot_api": {
+      "user": {
+        "name": "streambot",
+        "group": "streambot",
+        "home": "/home/streambot"
+      },
+      "scm": {
+        "git_repository": "git@bitbucket.org:streambot/api.git",
+        "git_revision": "master",
+        "name": "root",
+        "group": "root"
+      }
+    }
   },
   "run_list": [
   ],
@@ -15,6 +35,7 @@
       "recipe[streambot-api::vagrant]"
     ],
     "production": [
+      "recipe[chef-streambot-scm-access]",
       "recipe[chef-streambot-api::server]"
     ]
   }

@@ -15,7 +15,6 @@ default[:build_ami] = {
 	},
 	:user => {
 		:name	=> "",
-		:group 	=> "",
-		:home  	=> ""
+		:group 	=> ""
 	}
 }

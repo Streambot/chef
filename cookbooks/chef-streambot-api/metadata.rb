@@ -8,6 +8,7 @@ version           "0.0.1"
 
 recipe "chef-streambot-api::default", "Installs Streambot APi server"
 
+depends "chef-streambot-scm-access"
 depends "chef-streambot-aws"
 depends "golang"
 depends "chef-golang"

@@ -44,6 +44,12 @@
       },
       "user": {
         "name": "jenkins",
+        "group": "jenkins"
+      }
+    },
+    "scm_access": {
+      "user": {
+        "name": "jenkins",
         "group": "jenkins",
         "home": "/home/jenkins"
       }
@@ -55,6 +61,7 @@
     "_default": [
     ],
     "production": [
+      "recipe[chef-streambot-scm-access]",
       "recipe[chef-streambot-jenkins]",
       "recipe[chef-streambot-aws::access]",
       "recipe[chef-streambot-aws::cli]"

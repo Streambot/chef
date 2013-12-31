@@ -17,5 +17,5 @@ expect daemon
 
 script
 # My startup script, plain old shell scripting here.
-su <%= node[:streambot][:node][:user] %> -c "<%= node[:streambot][:api][:binary] %> &"
+su <%= @user %> -c "<%= @binary %> &"
 end script
