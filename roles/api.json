@@ -21,8 +21,10 @@
       "scm": {
         "git_repository": "git@bitbucket.org:streambot/api.git",
         "git_revision": "master",
-        "name": "root",
-        "group": "root"
+        "user": {
+          "name": "root",
+          "group": "root"
+        }
       }
     }
   },
