@@ -18,3 +18,10 @@ default[:build_ami] = {
 		:group 	=> ""
 	}
 }
+default[:scm_access] = {
+  :user => {
+    :name => "",
+    :group => "",
+    :home => ""
+  }
+}

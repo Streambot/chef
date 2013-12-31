@@ -1,4 +1,4 @@
-default["streambot_api"] => {
+default["streambot_api"] = {
 	:user 	=> "",
 	:group 	=> "",
 	:home 	=> "",
@@ -17,4 +17,11 @@ default["streambot_api"] => {
 			:group => ""
 		}
 	}
+}
+default[:scm_access] = {
+  :user => {
+    :name => "",
+    :group => "",
+    :home => ""
+  }
 }

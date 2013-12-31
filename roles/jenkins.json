@@ -61,10 +61,7 @@
     "_default": [
     ],
     "production": [
-      "recipe[chef-streambot-scm-access]",
-      "recipe[chef-streambot-jenkins]",
-      "recipe[chef-streambot-aws::access]",
-      "recipe[chef-streambot-aws::cli]"
+      "recipe[chef-streambot-jenkins]"
     ]
   }
 }

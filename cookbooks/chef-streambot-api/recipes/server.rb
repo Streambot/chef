@@ -10,6 +10,8 @@ user node[:streambot_api]['user'] do
 	shell 		node[:streambot_api]['shell']
 end
 
+include_recipe "chef-streambot-scm-access"
+
 template "/etc/init/streambot_api.conf" do
   source      'streambot-api.conf.erb'
   owner       'root'
