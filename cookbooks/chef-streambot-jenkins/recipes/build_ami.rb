@@ -6,7 +6,7 @@ template node[:build_ami][:aws][:keypair][:file] do
 	source	"jenkins.pem.erb"
 	mode	0600
 	owner 	"jenkins"
-	group 	"node[:build_ami][:user][:group]"
+	group 	node[:build_ami][:user][:group]
 end
 
 
