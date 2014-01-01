@@ -49,7 +49,7 @@ function usage {
 ################################################################################
 
 [ "$BUILD_TAG" = "" ] && usage && exit 1
-CWD=`pwd`/$BUILD_TAG
+CWD=`pwd`/`echo $BUILD_TAG | sed 's/\ /_/g'`
 mkdir -p $CWD
 cd $CWD
 
