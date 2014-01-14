@@ -2,6 +2,9 @@ include_recipe "chef-streambot-api"
 
 template "/etc/profile.d/api_vagrant.sh" do
 	source "vagrant_api_bash_profile.sh.erb"
+	owner "root"
+	group "root"
+	mode 0755
 	variables({
 		:go_path => "/vagrant" 
 	})
