@@ -1,7 +1,7 @@
 include_recipe "chef-streambot-api"
 
-template "/etc/profile.d/vagrant_api_profile.sh" do
-	source "vagrant_api_profile.sh.erb"
+template "/etc/profile.d/api_vagrant.sh" do
+	source "vagrant_api_bash_profile.sh.erb"
 	variables({
 		:go_path => "/vagrant" 
 	})
