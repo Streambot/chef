@@ -1,6 +1,11 @@
 include_recipe "chef-streambot-api"
 
-ENV['GOPATH'] = "#{ENV['GOPATH']}:/vagrant"
+template "/etc/profile.d/vagrant_api_profile.sh" do
+	source "vagrant_api_profile.sh.erb"
+	variables({
+		:go_path => "/vagrant" 
+	})
+end
 
 directory "/opt/go" do
   owner "vagrant"
