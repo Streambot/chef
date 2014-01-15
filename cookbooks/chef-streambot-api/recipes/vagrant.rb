@@ -1,3 +1,5 @@
+node[:go][:gopath] = "/opt/go:/vagrant"
+
 include_recipe "chef-streambot-api"
 
 directory "/opt/go" do
