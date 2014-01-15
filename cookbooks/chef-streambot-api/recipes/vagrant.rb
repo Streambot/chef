@@ -1,4 +1,4 @@
-node.default[:go][:gopath] = "/opt/go:/vagrant"
+node.override[:go][:gopath] = "/opt/go:/vagrant"
 
 include_recipe "chef-streambot-api"
 
