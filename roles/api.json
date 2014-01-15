@@ -2,7 +2,6 @@
   "name": "api",
   "description": "API server role",
   "json_class": "Chef::Role",
-  "description": "This the API server role",
   "chef_type": "role",
   "override_attributes": { 
     "scm_access": {
