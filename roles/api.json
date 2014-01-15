@@ -33,9 +33,6 @@
   "env_run_lists":{
     "_default": [
     ],
-    "vagrant": [
-      "recipe[streambot-api::vagrant]"
-    ],
     "production": [
       "recipe[chef-streambot-api::server]"
     ]
