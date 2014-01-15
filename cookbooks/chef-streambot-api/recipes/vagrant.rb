@@ -1,4 +1,4 @@
-override["go"] = {
+node["override"]["go"] = {
 	"gopath" => "/opt/go:/vagrant"
 }
 
