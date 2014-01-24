@@ -1,0 +1,17 @@
+{
+  "name": "graphite",
+  "description": "Graphite server role",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "override_attributes": {
+  },
+  "run_list": [
+  ],
+  "env_run_lists":{
+    "_default": [
+    ],
+    "production": [
+      "recipe[graphite]"
+    ]
+  }
+}

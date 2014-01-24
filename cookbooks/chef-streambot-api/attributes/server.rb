@@ -5,7 +5,7 @@ default["streambot_api"] = {
 		:home 	=> "",
 		:shell 	=> "/bin/bash"
 	},
-	:binary	=> "/opt/streambot/api/bin/streambot_api",
+	:home	=> "/usr/local/streambot",
 	:src 	=> "#{Chef::Config[:file_cache_path]}/streambot-api",
 	:scm	=> {
 		:git_repository => "",
@@ -14,6 +14,20 @@ default["streambot_api"] = {
 			:name => "",
 			:group => ""
 		}
+	},
+	:config => {
+		:server => {
+			:port => 8080
+		},
+		:database => {
+			:graph => "streambot",
+			:port => "8182",
+			:host => "localhost"
+		},
+		:stats => {
+			:port => 8125
+		},
+		:debug => true	
 	}
 }
 default[:scm_access] = {

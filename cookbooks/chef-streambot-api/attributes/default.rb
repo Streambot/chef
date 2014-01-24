@@ -7,6 +7,7 @@ normal["go"] = {
 		"code.google.com/p/go-uuid/uuid",
 		"github.com/sqs/go-rexster-client",
 		"github.com/op/go-logging",
-		"github.com/laurent22/ripple"
+		"github.com/laurent22/ripple",
+		"github.com/jessevdk/go-flags"
 	]
 }

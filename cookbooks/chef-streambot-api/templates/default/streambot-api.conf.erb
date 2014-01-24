@@ -17,5 +17,5 @@ expect daemon
 
 script
 # My startup script, plain old shell scripting here.
-su <%= @user %> -c "<%= @binary %> &"
+su <%= @user %> -c "<%= @binary %> -c <%= @config %>&"
 end script
