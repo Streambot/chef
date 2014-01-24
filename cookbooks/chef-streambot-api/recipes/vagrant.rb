@@ -1,3 +1,4 @@
+include_recipe "apt"
 include_recipe "chef-streambot-api"
 
 directory "/opt/go" do
