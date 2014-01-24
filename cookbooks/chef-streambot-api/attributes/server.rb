@@ -21,7 +21,7 @@ default["streambot_api"] = {
 		},
 		:database => {
 			:graph => "streambot",
-			:port => "8182",
+			:port => 8182,
 			:host => "localhost"
 		},
 		:stats => {
