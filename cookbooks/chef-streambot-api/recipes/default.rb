@@ -1,3 +1,4 @@
+include_recipe "apt"
 include_recipe "statsd"
 include_recipe "golang"
 include_recipe "chef-golang"
