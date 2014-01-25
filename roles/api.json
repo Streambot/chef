@@ -33,6 +33,7 @@
     "_default": [
     ],
     "production": [
+      "recipe[chef-streambot-aws::instance]",
       "recipe[chef-streambot-api::server]"
     ]
   }

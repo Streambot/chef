@@ -1,0 +1,8 @@
+# Simple script which just runs a provisioning script on boot, so you could safely reboot you boxes controlled by chef-solo
+
+description "runs provisioning on boot"
+
+start on runlevel [2345]
+
+task
+exec /etc/provision.sh

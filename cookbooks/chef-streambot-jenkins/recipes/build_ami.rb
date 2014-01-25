@@ -1,5 +1,5 @@
 include_recipe "chef-streambot-scm-access"
-include_recipe "chef-streambot-aws::access"
+include_recipe "chef-streambot-aws::instance"
 include_recipe "chef-streambot-aws::cli"
 
 ################################################################################
