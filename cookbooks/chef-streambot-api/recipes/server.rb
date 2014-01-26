@@ -91,7 +91,7 @@ bash "build_streambot_api" do
 	ln -s #{binary} /usr/bin/#{File.basename(binary)}
 	chmod 0755 #{binary}
 	EOH
-  	not_if { ::File.exists?(binary) }
-  	environment({ "GOPATH" => "/opt/go:#{node[:streambot_api][:src]}" })
-  	notifies :restart, 'service[streambot_api]', :delayed
+	not_if { ::File.exists?(binary) }
+	environment({ "GOPATH" => "/opt/go:#{node[:streambot_api][:src]}" })
+	notifies :restart, 'service[streambot_api]', :delayed
 end

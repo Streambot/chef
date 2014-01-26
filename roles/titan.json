@@ -4,10 +4,13 @@
   "json_class": "Chef::Role",
   "chef_type": "role",
   "override_attributes": {
+  	"titan": {
+		"graph": "streambot"
+	}
   },
   "run_list": [
   ],
-  "env_run_lists":{
+  "env_run_lists": {
     "_default": [
     ],
     "production": [
