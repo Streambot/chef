@@ -6,7 +6,19 @@
   "default_attributes": {
   	"titan": {
 		"graph": "streambot"
-	}
+	},
+    "aws_cli": {
+      "user": {
+        "name"  : "ubuntu",
+        "group" : "ubuntu",
+        "home"  : "/home/ubuntu",
+        "config": {
+          "access_key_id": 		"AKIAJ4Z6VLJRBCHACPIA",
+          "secret_access_key": 	"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",
+          "default_region": 	"eu-west-1" 
+        }
+      }
+    }
   },
   "run_list": [
   ],

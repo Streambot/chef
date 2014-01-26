@@ -14,7 +14,8 @@ template script do
 	group 	"root"
 	variables({
 		:env	=> instance[:env],
-		:role 	=> instance[:role]
+		:role 	=> instance[:role],
+		:user 	=> node[:aws_cli][:user][:name]
 	})
 end
 
