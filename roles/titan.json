@@ -3,7 +3,7 @@
   "description": "Titan/Cassandra node role",
   "json_class": "Chef::Role",
   "chef_type": "role",
-  "override_attributes": {
+  "default_attributes": {
   	"titan": {
 		"graph": "streambot"
 	}
