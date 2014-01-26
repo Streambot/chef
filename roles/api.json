@@ -3,7 +3,7 @@
   "description": "API server role",
   "json_class": "Chef::Role",
   "chef_type": "role",
-  "override_attributes": { 
+  "default_attributes": { 
     "scm_access": {
       "user": {
         "name": "root",
