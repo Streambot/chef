@@ -40,7 +40,7 @@ template '/etc/init/update-aws-tag.conf' do
 	mode 	0755
 	owner 	"root"
 	group 	"root"
-	varaiables({
+	variables({
 		:script => script
 	})
 end
