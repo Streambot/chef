@@ -35,8 +35,8 @@ end
 # Install provision upstart job
 ################################################################################
 
-template '/etc/init/update-aws-tag.conf' do
-	source 	"update-aws-tag.conf.erb"
+template '/etc/init/update-aws-tags.conf' do
+	source 	"update-aws-tags.conf.erb"
 	mode 	0755
 	owner 	"root"
 	group 	"root"
