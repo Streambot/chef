@@ -1,4 +1,3 @@
-include_recipe "chef-streambot-aws::access"
 include_recipe "chef-streambot-aws::cli"
 
 ################################################################################
