@@ -19,19 +19,6 @@ template script do
 end
 
 ################################################################################
-# Execute script for updating AWS tags for Streambot API server machine
-################################################################################
-
-bash "update_aws_tags" do
-	cwd File.dirname(script)
-	user "root"
-	group "root"
-	code <<-EOH
-	 ./#{File.basename(script)}
-	 EOH
-end
-
-################################################################################
 # Install provision upstart job
 ################################################################################
 
