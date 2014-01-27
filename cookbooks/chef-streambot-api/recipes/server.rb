@@ -50,10 +50,13 @@ end
 # Setup home directory of Streambot API server application
 ################################################################################
 
+user = node[:streambot_api][:user][:name]
+group = node[:streambot_api][:user][:group]
+
 %w{bin conf}.each do |dir|
   directory "#{node[:streambot_api][:home]}/#{dir}" do
-    owner "root"
-    group "root"
+    owner user
+    group group
     mode  "0644"
     action :create
     recursive true
@@ -63,9 +66,6 @@ end
 ################################################################################
 # Prepare config file for Streambot API server application
 ################################################################################
-
-user = node[:streambot_api][:user][:name]
-group = node[:streambot_api][:user][:group]
 
 template config_file do 
   source      'config.json.erb'
@@ -92,7 +92,7 @@ bash "build_streambot_api" do
   mv main #{binary}
 	rm -rf #{node[:streambot_api][:src]}
 	ln -s #{binary} /usr/bin/#{File.basename(binary)}
-  chown -R #{user}:#{group} #{binary}
+  chown -R #{user}:#{group}
 	chmod 0755 #{binary}
 	EOH
 	not_if { ::File.exists?(binary) }
