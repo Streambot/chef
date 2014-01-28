@@ -4,6 +4,15 @@
   "json_class": "Chef::Role",
   "chef_type": "role",
   "override_attributes": {
+    "graphite": {
+      "storage_schemas": [
+        {
+          "name": "everything_5s7d_5m1m",
+          "match-all": true,
+          "retentions": "5s:7d,5m:1m"
+        }
+      ]
+    },
     "aws_cli": {
       "user": {
         "name": "ubuntu",
