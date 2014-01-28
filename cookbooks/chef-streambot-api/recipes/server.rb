@@ -104,5 +104,6 @@ end
 
 bash "start_streambot_api" do
   code "chown -R #{user}:#{group} #{node[:streambot_api][:home]}"
+  code "chmod -R u+x #{node[:streambot_api][:home]}"
   notifies :restart, 'service[streambot_api]', :delayed
 end
