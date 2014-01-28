@@ -92,10 +92,17 @@ bash "build_streambot_api" do
   mv main #{binary}
 	rm -rf #{node[:streambot_api][:src]}
 	ln -s #{binary} /usr/bin/#{File.basename(binary)}
-  chown -R #{user}:#{group}
-	chmod 0755 #{binary}
+  chmod 0755 #{binary}
 	EOH
 	not_if { ::File.exists?(binary) }
 	environment({ "GOPATH" => "/opt/go:#{node[:streambot_api][:src]}" })
-	notifies :restart, 'service[streambot_api]', :delayed
+end
+
+################################################################################
+# Adjust permissions and start Streambot API server application
+################################################################################
+
+bash "start_streambot_api" do
+  code "chown -R #{user}:#{group} #{node[:streambot_api][:home]}"
+  notifies :restart, 'service[streambot_api]', :delayed
 end
