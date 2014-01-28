@@ -9,7 +9,7 @@
         {
           "name": "everything_5s7d_5m1m",
           "match-all": true,
-          "retentions": "5s:7d,5m:1m"
+          "retentions": "10s:7d,5m:1m"
         }
       ]
     },
