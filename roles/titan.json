@@ -29,7 +29,9 @@
       "recipe[chef-streambot-aws::ssh_access]",
       "recipe[chef-streambot-aws::instance]",
       "recipe[titan]",
-      "recipe[cassandra-opscenter]"
+      // Don't install "recipe[cassandra-opscenter]" as the leader election will fail in Chef-Solo
+      "recipe[cassandra-opscenter::opscenter-server]",
+      "recipe[cassandra-opscenter::opscenter-agent]"
     ]
   }
 }
