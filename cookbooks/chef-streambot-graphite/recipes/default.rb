@@ -3,6 +3,7 @@ include_recipe "graphite"
 jsFile 	= "/opt/graphite/webapp/content/js/composer_widgets.js"
 freq 	= node[:graphite][:dashboard_refresh_freq] || 1
 
+# @see http://goo.gl/XG15l
 bash "speedup_dashboard_refresh_to_1sec_freq" do
 	code <<-EOH
 		rm -rf /opt/graphite/storage/whisper/stats*
