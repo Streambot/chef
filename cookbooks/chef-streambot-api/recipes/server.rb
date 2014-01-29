@@ -23,7 +23,8 @@ template "/etc/init/streambot_api.conf" do
   variables({
   	:user => node[:streambot_api][:user][:name],
   	:binary => binary,
-    :config => config_file
+    :config => config_file,
+    :log => "#{node[:streambot_api][:home]}/log/streambot_api.log"
   })
 end
 
@@ -53,7 +54,7 @@ end
 user = node[:streambot_api][:user][:name]
 group = node[:streambot_api][:user][:group]
 
-%w{bin conf}.each do |dir|
+%w{bin conf log}.each do |dir|
   directory "#{node[:streambot_api][:home]}/#{dir}" do
     owner user
     group group
