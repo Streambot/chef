@@ -49,17 +49,17 @@ function usage {
 ################################################################################
 
 [ "$BUILD_TAG" = "" ] && usage && exit 1
-CWD=`pwd`/`echo $BUILD_TAG | sed 's/\ /_/g'`
-mkdir -p $CWD
-cd $CWD
+CWD="`pwd`/`echo $BUILD_TAG | sed 's/\ /_/g'`"
+mkdir -p "$CWD"
+cd "$CWD"
 
 ################################################################################
 # 1 - Download deployment repository
 ################################################################################
 
-TOOL_DIR=`pwd`/`echo "<%= @deployment_repo %>" | sed 's/.*\/\([^\/\.]*\)\.git/\1/g'`
+TOOL_DIR="$CWD/`echo "<%= @deployment_repo %>" | sed 's/.*\/\([^\/\.]*\)\.git/\1/g'`"
 git clone <%= @deployment_repo %>
-cd $TOOL_DIR
+cd "$TOOL_DIR"
 # Its safe to call the submodule commands here
 # even if the repos does not have any of these.
 git submodule init
@@ -75,7 +75,6 @@ git submodule update
 # script and that are appended by '"$@"' will override any pre-defined value.
 
 ./create_ami.sh \
---berkshelf-src $TOOL_DIR \
 --key-pair <%= @aws.keypair.file %> \
 --key-pair-name <%= @aws.keypair.name %> \
 --ami-id <%= @aws.base_ami %> \
@@ -89,7 +88,7 @@ git submodule update
 
 function clean_up {
   # Remove the working directory
-  rm -rf $CWD
+  rm -rf "$CWD"
 }
 
 # On ir-/regular exit, invoke clean up
