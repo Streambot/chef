@@ -9,12 +9,16 @@
         {
           "name": "everything_5s7d_5m1m",
           "match-all": true,
-          "retentions": "10s:7d,5m:1m"
+          "retentions": "1s:7d,5m:1m"
         }
       ],
       "graph_templates": [
         {
-          "name": "basic",
+          "name": "default",
+          "fontitalic": false,
+          "fontbold": false,
+          "fontsize": 10,
+          "fontname": "Sans",
           "background": "white",
           "foreground": "black",
           "majorLine": "grey",
@@ -44,7 +48,7 @@
     "production": [
       "recipe[chef-streambot-aws::ssh_access]",
       "recipe[chef-streambot-aws::instance]",
-      "recipe[graphite]"
+      "recipe[chef-streambot-graphite]"
     ]
   }
 }
