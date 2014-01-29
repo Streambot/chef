@@ -11,6 +11,16 @@
           "match-all": true,
           "retentions": "10s:7d,5m:1m"
         }
+      ],
+      "graph_templates": [
+        {
+          "name": "basic",
+          "background": "white",
+          "foreground": "black",
+          "majorLine": "grey",
+          "minorLine": "rose",
+          "lineColors": "blue,green,red,purple,brown,yellow,aqua,grey,magenta,pink,gold,rose"
+        }
       ]
     },
     "aws_cli": {
