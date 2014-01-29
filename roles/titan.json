@@ -5,8 +5,8 @@
   "chef_type": "role",
   "default_attributes": {
   	"titan": {
-		"graph": "streambot"
-	},
+  		"graph": "streambot"
+  	},
     "aws_cli": {
       "user": {
         "name"  : "ubuntu",
@@ -28,7 +28,8 @@
     "production": [
       "recipe[chef-streambot-aws::ssh_access]",
       "recipe[chef-streambot-aws::instance]",
-      "recipe[titan]"
+      "recipe[titan]",
+      "recipe[cassandra-opscenter]"
     ]
   }
 }
