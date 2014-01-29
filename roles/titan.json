@@ -29,8 +29,7 @@
       "recipe[chef-streambot-aws::ssh_access]",
       "recipe[chef-streambot-aws::instance]",
       "recipe[titan]",
-      "recipe[cassandra-opscenter::opscenter_server]",
-      "recipe[cassandra-opscenter::opscenter_agent]"
+      "recipe[cassandra-opscenter::opscenter_server]"
     ]
   }
 }
