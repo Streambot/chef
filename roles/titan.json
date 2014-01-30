@@ -5,9 +5,17 @@
   "chef_type": "role",
   "default_attributes": {
   	"titan": {
-  		"graph": "streambot",
-      "run_opscenter": true
+  		"graph": "streambot"
   	},
+    "opscenter": {
+      "enabled": false,
+      "clusters": [
+        {
+          "name": "Streambot Titan Cluster",
+          "seeds": ["0.0.0.0"]
+        }
+      ]
+    },
     "aws_cli": {
       "user": {
         "name"  : "ubuntu",
