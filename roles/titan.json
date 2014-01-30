@@ -8,7 +8,7 @@
   		"graph": "streambot"
   	},
     "opscenter": {
-      "enabled": false,
+      "enabled": true,
       "clusters": [
         {
           "name": "Streambot Titan Cluster",
