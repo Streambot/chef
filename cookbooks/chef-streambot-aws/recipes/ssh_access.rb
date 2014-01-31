@@ -1,6 +1,6 @@
 node.ssh_access.ssh.each do |user, config|
 
-	configauthorized_keys.each do |key|
+	config.authorized_keys.each do |key|
 		file = "#{config.home}/.ssh/authorized_keys"
 	    execute "if ! grep -q '#{key}' #{file} ; then echo '#{key}' >> #{file}; fi;"
 	end
