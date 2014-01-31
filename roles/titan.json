@@ -8,13 +8,11 @@
   		"graph": "streambot"
   	},
     "opscenter": {
-      "enabled": true,
-      "clusters": [
-        {
-          "name": "Streambot Titan Cluster",
+      "clusters": {
+        "Streambot Titan Cluster": {
           "seeds": ["0.0.0.0"]
         }
-      ]
+      }
     },
     "aws_cli": {
       "user": {
