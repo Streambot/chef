@@ -1,25 +1,30 @@
-node.ssh_access.ssh.authorized_keys.each do |key|
-	file = "#{node.ssh_access.ssh.user.home}/.ssh/authorized_keys"
-    execute "if ! grep -q '#{key}' #{file} ; then echo '#{key}' >> #{file}; fi;"
-end
+node.ssh_access.ssh.each do |user, config|
 
-
-unless node.ssh_access.ssh.user.private_key.nil?
-	bash "install_private_key_for_user_#{node.ssh_access.ssh.user.name}" do
-		user 	node.ssh_access.ssh.user.name
-		cwd		node.ssh_access.ssh.user.home
-		code 	<<-EOH
-			echo "#{node.ssh_access.ssh.user.private_key}" > .ssh/id_rsa
-		EOH
+	configauthorized_keys.each do |key|
+		file = "#{config.home}/.ssh/authorized_keys"
+	    execute "if ! grep -q '#{key}' #{file} ; then echo '#{key}' >> #{file}; fi;"
 	end
-end
 
-unless node.ssh_access.ssh.user.public_key.nil?
-	bash "install_public_key_for_user_#{node.ssh_access.ssh.user.name}" do
-		user 	node.ssh_access.ssh.user.name
-		cwd		node.ssh_access.ssh.user.home
-		code 	<<-EOH
-			echo "#{node.ssh_access.ssh.user.public_key}" > .ssh/id_rsa.pub
-		EOH
+
+	unless config.private_key.nil?
+		bash "install_private_key_for_user_#{user}" do
+			user 	user
+			cwd		config.home
+			code 	<<-EOH
+				echo "#{config.private_key}" > .ssh/id_rsa
+				chmod 700 .ssh/id_rsa
+			EOH
+		end
 	end
+
+	unless config.public_key.nil?
+		bash "install_public_key_for_user_#{user}" do
+			user 	user
+			cwd		config.home
+			code 	<<-EOH
+				echo "#{config.public_key}" > .ssh/id_rsa.pub
+			EOH
+		end
+	end
+
 end
