@@ -1,12 +1,14 @@
-node.ssh_access.ssh.each do |user, config|
+node.ssh_access.each do |user, config|
 
-	config.authorized_keys.each do |key|
-		file = "#{config.home}/.ssh/authorized_keys"
-	    execute "if ! grep -q '#{key}' #{file} ; then echo '#{key}' >> #{file}; fi;"
+	if !config[:authorized_keys].nil? and !config.authorized_keys.empty?
+		config.authorized_keys.each do |key|
+			file = "#{config.home}/.ssh/authorized_keys"
+		    execute "if ! grep -q '#{key}' #{file} ; then echo '#{key}' >> #{file}; fi;"
+		end
 	end
 
 
-	unless config.private_key.nil?
+	if !config[:private_key].nil? && !config.private_key.empty?
 		bash "install_private_key_for_user_#{user}" do
 			user 	user
 			cwd		config.home
@@ -17,7 +19,7 @@ node.ssh_access.ssh.each do |user, config|
 		end
 	end
 
-	unless config.public_key.nil?
+	if !config[:public_key].nil? && !config.public_key.empty?
 		bash "install_public_key_for_user_#{user}" do
 			user 	user
 			cwd		config.home
