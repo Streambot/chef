@@ -10,7 +10,12 @@ directory "/var/backup" do
   action :create
 end
 
-template '/var/lib/jenkins/thinBackup.xml' do
+if node[:jenkins][:server][:home].nil?
+	Chef::Application.fatal! "Expected Jenkins user home folder attribute `jenkins.server.home` " \
+	"from dependent jenkins cookbook dependency"
+end
+
+template "#{node[:jenkins][:server][:home]}/thinBackup.xml" do
 	source "thinBackup.xml.erb"
 	mode 0755
 	owner "jenkins"
