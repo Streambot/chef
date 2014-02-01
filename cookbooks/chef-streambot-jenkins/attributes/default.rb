@@ -4,4 +4,4 @@ default[:aws] = {
 	:secret_key => "",
 	:s3_backup_bucket_uri => "",
 }
-default[:jenkins][:executor] = 240
+default[:jenkins][:executor][:timeout] = 240
