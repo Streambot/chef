@@ -9,7 +9,7 @@
       "user": {
         "name"  : "jenkins",
         "group" : "jenkins",
-        "home"  : "/home/jenkins",
+        "home"  : "/var/lib/jenkins",
         "config": {
           "access_key_id": "AKIAJ4Z6VLJRBCHACPIA",
           "secret_access_key": "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",
@@ -27,7 +27,7 @@
         "access_key": "AKIAJ4Z6VLJRBCHACPIA",
         "secret_key": "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",
         "keypair": {
-          "file": "/home/jenkins/.ssh/jenkins.pem",
+          "file": "/var/lib/jenkins/.ssh/jenkins.pem",
           "name": "jenkins"
         },
         "base_ami": "ami-07cb2670"
@@ -46,7 +46,7 @@
       "user": {
         "name": "jenkins",
         "group": "jenkins",
-        "home": "/home/jenkins"
+        "home": "/var/lib/jenkins"
       }
     }
   },
