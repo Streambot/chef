@@ -56,9 +56,9 @@
     "_default": [
     ],
     "production": [
+      "recipe[chef-streambot-jenkins]",
       "recipe[chef-streambot-aws::ssh_access]",
-      "recipe[chef-streambot-aws::instance]",
-      "recipe[chef-streambot-jenkins]"
+      "recipe[chef-streambot-aws::instance]"
     ]
   }
 }
