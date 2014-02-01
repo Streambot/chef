@@ -5,11 +5,6 @@
   "description": "This the Jenkins role - a Jenkins CI server.",
   "chef_type": "role",
   "override_attributes": {
-    "jenkins": {
-      "server": {
-        "home": "/home/jenkins"
-      }
-    },
     "aws_cli": {
       "user": {
         "name"  : "jenkins",

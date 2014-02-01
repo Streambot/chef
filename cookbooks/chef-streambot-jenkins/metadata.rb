@@ -9,5 +9,5 @@ recipe "chef-streambot-jenkins::default", "Installs Jenkins plugins and sets up 
 
 depends "chef-streambot-scm-access"
 depends "chef-streambot-aws"
-depends "jenkins"
+depends "jenkins", "2.0.2"
 depends "aws_developer_tools"
