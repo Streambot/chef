@@ -28,6 +28,14 @@ template graphite_conf_file do
 	variables(node[:collectd])
 end
 
+# Install collectd startup script
+template node[:collectd_script] do
+	source 	"update-collectd-conf.sh.erb"
+	mode	0644
+	owner 	"root"
+	group 	"root"
+end
+
 # Add an include on the Graphite configuration for collectd to main collectd configuration
 bash "install_graphite_collectd_conf" do 
 	code "echo \"Include \\\"#{graphite_conf_file}\\\"\" >> #{node[:collectd_script]}"
