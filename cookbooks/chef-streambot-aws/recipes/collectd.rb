@@ -23,10 +23,10 @@ end
 graphite_conf_file = "/etc/collectd/graphite.conf"
 
 template graphite_conf_file do
-	source "graphite.collectd.conf.erb"
-	chmod 0644
-	owner "root"
-	group "root"
+	source 	"graphite.collectd.conf.erb"
+	mode	0644
+	owner 	"root"
+	group 	"root"
 	variables(node[:collectd])
 end
 
