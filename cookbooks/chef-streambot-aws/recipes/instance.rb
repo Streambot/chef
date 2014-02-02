@@ -1,3 +1,4 @@
+include_recipe "collectd-write-graphite"
 include_recipe "chef-streambot-aws::cli"
 
 ################################################################################
