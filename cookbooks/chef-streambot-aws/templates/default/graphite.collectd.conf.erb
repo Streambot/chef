@@ -4,8 +4,6 @@ LoadPlugin write_graphite
    Host "<%= @graphite_host %>"
    Port "2003"
    Prefix "collectd."
-   #Postfix ""
-   #Protocol "udp"
    EscapeCharacter "_"
    SeparateInstances true
    StoreRates false
