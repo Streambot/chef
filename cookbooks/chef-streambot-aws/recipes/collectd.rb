@@ -38,7 +38,7 @@ end
 
 # Add an include on the Graphite configuration for collectd to main collectd configuration
 bash "install_graphite_collectd_conf" do 
-	code "echo \"Include \\\"#{graphite_conf_file}\\\"\" >> #{node[:collectd_script]}"
+	code "echo \"Include \\\"#{graphite_conf_file}\\\"\" >> /etc/collectd/collectd.conf"
 	user "root"
 	cwd "/tmp"
 end
