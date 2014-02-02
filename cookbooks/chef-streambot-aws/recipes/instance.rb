@@ -6,7 +6,7 @@ instance = node[:aws_instance]
 # Install script for updating hostname
 ################################################################################
 
-template default[:hostname_script] do
+template node[:hostname_script] do
 	source 	"update-hostname.sh.erb"
 	mode 	0755
 	owner 	"root"
@@ -21,7 +21,7 @@ end
 # Install script for updating AWS tags
 ################################################################################
 
-template default[:aws_tags_script] do
+template node[:aws_tags_script] do
 	source 	"update-aws-tags.sh.erb"
 	mode 	0755
 	owner 	"root"
