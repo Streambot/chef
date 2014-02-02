@@ -1,3 +1,3 @@
 #! /bin/bash
 
-su - <%= @user %> -c "aws ec2 create-tags --resources `ec2metadata --instance-id` --tags Key=Name,Value=<%= @role %>_<%= @env %>_`ec2metadata --availability-zone`_`ec2metadata --local-ipv4`"
+su - <%= @user %> -c "aws ec2 create-tags --resources `ec2metadata --instance-id` --tags Key=Name,Value=`cat /etc/hostname`"

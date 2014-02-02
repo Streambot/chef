@@ -3,4 +3,6 @@ description "Updates AWS instance tags on boot"
 start on runlevel [2345]
 
 task
-exec <%= @script %>
+<% @scripts.each do |script| %>
+exec <%= script %>
+<% end %>

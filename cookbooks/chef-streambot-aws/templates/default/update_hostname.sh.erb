@@ -1,0 +1,3 @@
+#! /bin/bash
+
+echo <%= @role %>_<%= @env %>_`ec2metadata --availability-zone`_`ec2metadata --local-ipv4` > /etc/hostname

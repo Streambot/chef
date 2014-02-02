@@ -18,10 +18,23 @@ package "collectd" do
   action :install
 end
 
+# Update collectd hostname settings
+collectd_conf_file = "/etc/collectd/collectd.conf"
+bash "update_collectd_conf_for_hostname" do
+	user "root"
+  	cwd "/tmp"
+	code <<-EOH
+	cp #{collectd_conf_file} #{collectd_conf_file}.old
+	sed "s/#Hostname \"[^\"]*\"/Hostname \"`cat \\/etc\\/hostname`\"/" #{collectd_conf_file}.old > #{collectd_conf_file}
+	rm #{collectd_conf_file}.old
+	cp #{collectd_conf_file} #{collectd_conf_file}.old
+	sed "s/FQDNLookup true/FQDNLookup false/" #{collectd_conf_file}.old > #{collectd_conf_file}
+	rm #{collectd_conf_file}.old
+	EOH
+end
+
 # Install Graphite configuration for Collectd from template
-
 graphite_conf_file = "/etc/collectd/graphite.conf"
-
 template graphite_conf_file do
 	source 	"graphite.collectd.conf.erb"
 	mode	0644
