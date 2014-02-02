@@ -1,4 +1,3 @@
-include_recipe "collectd-write-graphite"
 include_recipe "chef-streambot-aws::cli"
 
 ################################################################################
@@ -33,3 +32,5 @@ template '/etc/init/update-aws-tags.conf' do
 		:script => script
 	})
 end
+
+include_recipe "collectd"
