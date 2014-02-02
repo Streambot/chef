@@ -25,7 +25,7 @@ bash "update_collectd_conf_for_hostname" do
   	cwd "/tmp"
 	code <<-EOH
 	cp #{collectd_conf_file} #{collectd_conf_file}.old
-	sed "s/#Hostname \"[^\"]*\"/Hostname \"`cat \\/etc\\/hostname`\"/" #{collectd_conf_file}.old > #{collectd_conf_file}
+	sed "s/#Hostname \\"[^\\"]*\\"/Hostname \"`cat \\/etc\\/hostname`\"/" #{collectd_conf_file}.old > #{collectd_conf_file}
 	rm #{collectd_conf_file}.old
 	cp #{collectd_conf_file} #{collectd_conf_file}.old
 	sed "s/FQDNLookup true/FQDNLookup false/" #{collectd_conf_file}.old > #{collectd_conf_file}
