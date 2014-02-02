@@ -7,7 +7,7 @@ package "git"
 directory "#{node[:scm_access][:user][:home]}/.ssh" do
 	owner 	node[:scm_access][:user][:name]
 	group 	node[:scm_access][:user][:group]
-	mode 	0644
+	mode 	0755
 	action  :create
 end
 
