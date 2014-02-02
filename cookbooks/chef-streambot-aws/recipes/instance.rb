@@ -33,4 +33,4 @@ template '/etc/init/update-aws-tags.conf' do
 	})
 end
 
-include_recipe "collectd"
+include_recipe "chef-streambot-aws::collectd"
