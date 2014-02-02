@@ -32,3 +32,8 @@ end
 
 # Add an include on the Graphite configuration for collectd to main collectd configuration
 bash "echo \"Include \\\"#{graphite_conf_file}\\\"\" >> /etc/collectd/collectd.conf"
+
+# Restart collectd daemon to adopt installed configuration
+service "collectd" do
+	action :restart
+end
