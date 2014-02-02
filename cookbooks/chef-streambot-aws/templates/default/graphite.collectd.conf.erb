@@ -1,12 +1,13 @@
 LoadPlugin write_graphite
+
 <Plugin write_graphite>
- <Carbon>
-   Host "<%= @graphite_host %>"
-   Port "2003"
-   Prefix "collectd."
-   EscapeCharacter "_"
-   SeparateInstances true
-   StoreRates false
-   AlwaysAppendDS false
- </Carbon>
+  <Carbon>
+    Host "<%= @graphite_host %>"
+    Port "2003"
+    Prefix "collectd."
+#    Postfix "collectd"
+    StoreRates false
+    AlwaysAppendDS false
+    EscapeCharacter "_"
+  </Carbon>
 </Plugin>

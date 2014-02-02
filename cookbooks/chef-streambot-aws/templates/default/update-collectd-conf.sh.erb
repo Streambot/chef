@@ -3,11 +3,9 @@
 conf_file=/etc/collectd/collectd.conf
 hostname=`cat /etc/hostname`
 cp $conf_file "${conf_file}.old"
-sed "s/#Hostname.*/Hostname\ \"${hostname}\"/g" "${conf_file}.old" > $conf_file
+sed "s/\(\#\|\)#Hostname.*/Hostname\ \"${hostname}\"/g" "${conf_file}.old" > $conf_file
 rm "${conf_file}.old"
 cp $conf_file "${conf_file}.old"
 sed "s/FQDNLookup true/FQDNLookup false/g" "${conf_file}.old" > $conf_file
 rm "${conf_file}.old"
-
-
-
+service collectd restart
