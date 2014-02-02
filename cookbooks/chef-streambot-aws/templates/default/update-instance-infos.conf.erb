@@ -3,7 +3,7 @@ description "Updates AWS instance tags on boot"
 start on runlevel [2345]
 
 task
-<% @scripts.each do |idx, script| %>
-bash <%= script %>
+<% @scripts.keys.sort.each do |idx| %>
+bash <%= @scripts[idx] %>
 <% end %>
 exit 0
