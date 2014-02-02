@@ -18,21 +18,6 @@ package "collectd" do
   action :install
 end
 
-# Update collectd hostname settings
-collectd_conf_file = "/etc/collectd/collectd.conf"
-bash "update_collectd_conf_for_hostname" do
-	user "root"
-  	cwd "/tmp"
-	code <<-EOH
-	cp #{collectd_conf_file} #{collectd_conf_file}.old
-	sed "s/#Hostname \\"[^\\"]*\\"/Hostname \"`cat \\/etc\\/hostname`\"/" #{collectd_conf_file}.old > #{collectd_conf_file}
-	rm #{collectd_conf_file}.old
-	cp #{collectd_conf_file} #{collectd_conf_file}.old
-	sed "s/FQDNLookup true/FQDNLookup false/" #{collectd_conf_file}.old > #{collectd_conf_file}
-	rm #{collectd_conf_file}.old
-	EOH
-end
-
 # Install Graphite configuration for Collectd from template
 graphite_conf_file = "/etc/collectd/graphite.conf"
 template graphite_conf_file do
@@ -44,9 +29,14 @@ template graphite_conf_file do
 end
 
 # Add an include on the Graphite configuration for collectd to main collectd configuration
-bash "echo \"Include \\\"#{graphite_conf_file}\\\"\" >> /etc/collectd/collectd.conf"
+bash "install_graphite_collectd_conf" do 
+	code "echo \"Include \\\"#{graphite_conf_file}\\\"\" >> #{node[:collectd_script]}"
+	user "root"
+	cwd "/tmp"
+end
 
 # Restart collectd daemon to adopt installed configuration
 service "collectd" do
 	action :restart
 end
+

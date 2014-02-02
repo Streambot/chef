@@ -1,14 +1,12 @@
 include_recipe "chef-streambot-aws::cli"
 
-instance 		= node[:aws_instance]
-aws_tags_script = "/etc/update-aws-tags.sh"
-hostname_script = "/etc/update-hostname.sh"
+instance = node[:aws_instance]
 
 ################################################################################
 # Install script for updating hostname
 ################################################################################
 
-template hostname_script do
+template default[:hostname_script] do
 	source 	"update-hostname.sh.erb"
 	mode 	0755
 	owner 	"root"
@@ -23,7 +21,7 @@ end
 # Install script for updating AWS tags
 ################################################################################
 
-template aws_tags_script do
+template default[:aws_tags_script] do
 	source 	"update-aws-tags.sh.erb"
 	mode 	0755
 	owner 	"root"
@@ -32,6 +30,12 @@ template aws_tags_script do
 		:user => node[:aws_cli][:user][:name]
 	})
 end
+
+################################################################################
+# Install collectd monitoring
+################################################################################
+
+include_recipe "chef-streambot-aws::collectd"
 
 ################################################################################
 # Install provision upstart job
@@ -43,9 +47,6 @@ template '/etc/init/update-instance-infos.conf' do
 	owner 	"root"
 	group 	"root"
 	variables({
-		# Order is important here!
-		:scripts => [hostname_script, aws_tags_script]
+		:scripts => node[:startup_scripts]
 	})
 end
-
-include_recipe "chef-streambot-aws::collectd"

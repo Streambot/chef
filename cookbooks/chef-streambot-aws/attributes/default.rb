@@ -1,0 +1,1 @@
+default[:startup_scripts] = {}
