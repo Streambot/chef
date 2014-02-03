@@ -5,8 +5,7 @@ LoadPlugin write_graphite
     Host "<%= @graphite_host %>"
     Port "2003"
     Prefix "collectd."
-#    Postfix "collectd"
-    StoreRates false
+    StoreRates true
     AlwaysAppendDS false
     EscapeCharacter "_"
   </Carbon>
