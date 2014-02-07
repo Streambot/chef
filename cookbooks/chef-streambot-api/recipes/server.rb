@@ -4,7 +4,7 @@ include_recipe "chef-streambot-api"
 group node[:streambot_api][:user][:group]
 
 user node[:streambot_api][:user][:name] do
-	comment		'Streambot API node (ssh)'
+	comment		'Streambot API user (ssh)'
 	gid 		node[:streambot_api][:user][:group]
 	home 		node[:streambot_api][:user][:home]
 	shell 		node[:streambot_api][:user][:shell]
