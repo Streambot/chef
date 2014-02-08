@@ -9,6 +9,7 @@ normal["go"] = {
 }
 default["gom_packages"] = {
 	"code.google.com/p/go-uuid/uuid" => {},
+	"github.com/mbiermann/go-cluster" => {},
 	"github.com/mbiermann/go-rexster-client" => {},
 	"github.com/op/go-logging" => {},
 	"github.com/laurent22/ripple" => {},
