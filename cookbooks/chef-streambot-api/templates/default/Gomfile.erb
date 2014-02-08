@@ -1,3 +1,3 @@
 <% @deps.each do |name, options| %>
-gom <%= name + (!options[:branch].nil? ? " :branch => #{options.branch}" : "") %>
+gom <%= "'#{name}'" + (!options[:branch].nil? ? ", :branch => '#{options.branch}'" : "") %>
 <% end %>
