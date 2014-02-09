@@ -7,7 +7,12 @@ template "#{node[:streambot_api][:src]}/Gomfile" do
 	})
 end
 
+user = node[:streambot_api][:user][:name]
+group = node[:streambot_api][:user][:group]
+
 bash "install_gom_dependencies" do
-	cwd node[:streambot_api][:src]
-	code "gom install"
+	cwd 	node[:streambot_api][:src]
+	code 	"gom install"
+	user 	user
+	group 	group
 end
