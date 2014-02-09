@@ -4,7 +4,7 @@
 	},
 	"database": {
 		"graph": "<%= @config.database.graph %>",
-		"hosts": [<%= @config.database.hosts.map! { |h| "\"#{h}\"" }.join(",") %>]
+		"hosts": [<%= @config.database.hosts.map { |h| "\"#{h}\"" }.join(",") %>]
 	},
 	"stats": {
 		"port": <%= @config.stats.port %>
