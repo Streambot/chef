@@ -5,7 +5,7 @@ default["streambot_api"] = {
 		:home 	=> "",
 		:shell 	=> "/bin/bash"
 	},
-	:home	=> "/usr/local/streambot",
+	:home	=> "",
 	:src 	=> "#{Chef::Config[:file_cache_path]}/streambot-api",
 	:scm	=> {
 		:git_repository => "",
