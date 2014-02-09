@@ -48,6 +48,11 @@ git node[:streambot_api][:src] do
 end
 
 ################################################################################
+# Add gom configuration and install dependencies
+################################################################################
+include_recipe "chef-streambot-api::gom_packages"
+
+################################################################################
 # Setup home directory of Streambot API server application
 ################################################################################
 
