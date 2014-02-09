@@ -91,7 +91,6 @@ bash "build_streambot_api" do
 	cd #{node[:streambot_api][:src]}
   /usr/local/go/bin/go build main.go
   mv main #{binary}
-	rm -rf #{node[:streambot_api][:src]}
 	ln -s #{binary} /usr/bin/#{File.basename(binary)}
   chmod 0755 #{binary}
 	EOH
