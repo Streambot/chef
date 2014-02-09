@@ -1,0 +1,54 @@
+{
+  "name": "test",
+  "description": "Test server role",
+  "json_class": "Chef::Role",
+  "chef_type": "role",
+  "default_attributes": { 
+    "scm_access": {
+      "user": {
+        "name": "root",
+        "group": "root",
+        "home": "/root"
+      }
+    },
+    "aws_cli": {
+      "user": {
+        "name"  : "ubuntu",
+        "group" : "ubuntu",
+        "home"  : "/home/ubuntu",
+        "config": {
+          "access_key_id": "AKIAJ4Z6VLJRBCHACPIA",
+          "secret_access_key": "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",
+          "default_region": "eu-west-1" 
+        }
+      }
+    },
+    "streambot_test": {
+      "user": {
+        "name": "streambot",
+        "group": "streambot",
+        "home": "/home/streambot"
+      },
+      "home": "/usr/local/streambot",
+      "scm": {
+        "git_repository": "git@bitbucket.org:streambot/test.git",
+        "git_revision": "master",
+        "user": {
+          "name": "root",
+          "group": "root"
+        }
+      }
+    }
+  },
+  "run_list": [
+  ],
+  "env_run_lists":{
+    "_default": [
+      "recipe[chef-streambot-test]"
+    ],
+    "production": [
+      "recipe[chef-streambot-aws::ssh_access]",
+      "recipe[chef-streambot-aws::instance]"
+    ]
+  }
+}

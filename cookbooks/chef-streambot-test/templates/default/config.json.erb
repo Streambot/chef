@@ -1,0 +1,8 @@
+{
+	"api_hosts": [<%= @hosts.map { |h| "\"#{h}\"" }.join(",") %>],
+	"sample_rate": <%= @sample_rate %>,
+	"create_channel_throttle": <%= @create_channel_throttle %>,
+	"subscribe_channel_throttle": <%= @subscribe_channel_throttle %>,
+	"get_subscription_throttle": <%= @get_subscription_throttle %>,
+	"num_workers": <%= @num_workers %>
+}
