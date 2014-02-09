@@ -17,5 +17,5 @@ expect daemon
 
 script
 # My startup script, plain old shell scripting here.
-su <%= @user %> -c "<%= @binary %> -c <%= @config %> >> <%= @log %> 2>&1"
+su <%= @user %> -c 'GOPATH=$GOPATH:<%= File.dirname(@binary) %>:<%= File.dirname(@binary) %>/vendor <%= @binary %> -c <%= @config %> >> <%= @log %> 2>&1'
 end script
