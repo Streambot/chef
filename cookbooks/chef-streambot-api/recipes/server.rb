@@ -100,7 +100,7 @@ bash "build_streambot_api" do
   chmod 0755 #{binary}
 	EOH
 	not_if { ::File.exists?(binary) }
-	environment({ "GOPATH" => "/opt/go:#{node[:streambot_api][:src]}:#{node[:streambot_api][:src]}/vendor" })
+	environment({ "GOPATH" => "/opt/go:#{node[:streambot_api][:src]}:#{node[:streambot_api][:src]}/vendor/" })
 end
 
 ################################################################################
