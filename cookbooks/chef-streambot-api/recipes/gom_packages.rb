@@ -4,7 +4,7 @@ group = node[:streambot_api][:user][:group]
 directory node[:streambot_api][:src] do
 	owner user
 	group group
-	mode  "0644"
+	mode  "0755"
 	action :create
   	recursive true
 end
