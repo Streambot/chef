@@ -22,6 +22,11 @@ user node[:streambot_test][:user][:name] do
 	shell 		node[:streambot_test][:user][:shell]
 end
 
+##############################################################################
+# Install source code management access
+##############################################################################
+
+include_recipe "chef-streambot-scm-access"
 
 ################################################################################
 # Clone the Streambot API server source control repository
