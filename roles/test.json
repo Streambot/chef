@@ -44,11 +44,11 @@
   ],
   "env_run_lists":{
     "_default": [
-      "recipe[chef-streambot-test]"
     ],
     "production": [
       "recipe[chef-streambot-aws::ssh_access]",
-      "recipe[chef-streambot-aws::instance]"
+      "recipe[chef-streambot-aws::instance]",
+      "recipe[chef-streambot-test]"
     ]
   }
 }

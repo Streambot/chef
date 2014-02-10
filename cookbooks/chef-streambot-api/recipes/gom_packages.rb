@@ -12,7 +12,7 @@ group = node[:streambot_api][:user][:group]
 
 bash "install_gom_dependencies" do
 	cwd 	node[:streambot_api][:src]
-	code 	"gom install"
+	code 	"source /etc/profile; gom install"
 	user 	user
 	group 	group
 end
