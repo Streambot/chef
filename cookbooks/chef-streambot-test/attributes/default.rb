@@ -28,11 +28,11 @@ default[:streambot_test] = {
 	}, 
 	:config => {
 		:api_hosts => [],
-		"sample_rate" => 0,
-		"create_channel_throttle" => 0,
-		"subscribe_channel_throttle" => 0,
-		"get_subscription_throttle" => 0,
-		"num_workers" => 0
+		:sample_rate => 0,
+		:create_channel_throttle => 0,
+		:subscribe_channel_throttle => 0,
+		:get_subscription_throttle => 0,
+		:num_workers => 0
 	}
 }
 default[:scm_access] = {

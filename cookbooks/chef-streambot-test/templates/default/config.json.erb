@@ -1,5 +1,5 @@
 {
-	"api_hosts": [<%= @hosts.map { |h| "\"#{h}\"" }.join(",") %>],
+	"api_hosts": [<%= @api_hosts.map { |h| "\"#{h}\"" }.join(",") %>],
 	"sample_rate": <%= @sample_rate %>,
 	"create_channel_throttle": <%= @create_channel_throttle %>,
 	"subscribe_channel_throttle": <%= @subscribe_channel_throttle %>,
