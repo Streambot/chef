@@ -14,7 +14,7 @@ default[:streambot_test] = {
 	:user => {
 		:name => "streambot",
 		:group => "streambot",
-		:shell => "bash",
+		:shell => "/bin/bash",
 		:home => "/home/streambot"
 	},
 	:home	=> "",
