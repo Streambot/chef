@@ -1,7 +1,7 @@
 user = node[:streambot_api][:user][:name]
 group = node[:streambot_api][:user][:group]
 
-directory File.dirname(node[:streambot_api][:src]) do
+directory node[:streambot_api][:src] do
 	owner user
 	group group
 	mode  "0644"
