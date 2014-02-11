@@ -5,17 +5,11 @@ description "Start and stop the Streambot API server"
 version "0.1"
 author "Martin Biermann"
 
-start on local-filesystems and net-device-up IFACE!=lo
-stop on shutdown
+start on [2345]
+stop on [016]
 
 respawn
-respawn limit 5 60
 
-# tell upstart we're creating a daemon
-# upstart manages PID creation for you.
-expect daemon
+setuid <%= @user %>
 
-script
-# My startup script, plain old shell scripting here.
-su <%= @user %> -c "<%= @binary %> -c <%= @config %> >> <%= @log %> 2>&1"
-end script
+exec <%= @binary %> -c <%= @config %> >> <%= @log %> 2>&1
