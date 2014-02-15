@@ -50,3 +50,9 @@ template '/etc/init/update-instance-infos.conf' do
 		:scripts => node[:startup_scripts]
 	})
 end
+
+################################################################################
+# Install convenience packages 
+################################################################################
+
+package "htop"
