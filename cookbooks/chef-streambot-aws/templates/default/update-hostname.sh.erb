@@ -1,3 +1,7 @@
 #! /bin/bash
 
-echo <%= @role %>_<%= @env %>_`ec2metadata --availability-zone`_ip-`ec2metadata --local-ipv4 | tr "." "-"` > /etc/hostname
+echo <%= @role %>-<%= @env %>-`ec2metadata --availability-zone`-ip-`ec2metadata --local-ipv4 | tr "." "-"` > /etc/hostname
+cp /etc/hosts /etc/hosts.old
+sed "s+127.0.0.1 localhost.*+127.0.0.1 localhost `cat /etc/hostname`+" /etc/hosts.old > /etc/hosts
+rm /etc/hosts.old
+start hostname
